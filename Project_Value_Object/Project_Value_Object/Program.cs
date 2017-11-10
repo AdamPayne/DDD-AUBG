@@ -53,9 +53,11 @@ namespace Project_Value_Object
     {
         static void Main(string[] args)
         {
-            string ai = "a";
-            string bi = "a";
-            Console.WriteLine(ai.Equals(bi));
+            Conference hackConfOne = new Conference("HackConf", new DateTime(2017, 9, 30, 9, 0, 0));
+            Conference hackConfTwo = new Conference("HackConf", new DateTime(2017, 9, 30, 9, 0, 0));
+            Conference openFest = new Conference("OpenFest", new DateTime(2017, 11, 4, 9, 0, 0));
+            Console.WriteLine(hackConfOne.Equals(openFest));
+            Console.WriteLine(hackConfOne.Equals(hackConfTwo));
         }
     }
 }
