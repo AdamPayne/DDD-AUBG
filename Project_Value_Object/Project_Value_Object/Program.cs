@@ -48,7 +48,18 @@ namespace Project_Value_Object
         {
             return String.Format("Conference({0}, {1})", ConferenceName, ConferenceDate);
         }
+
+        public static bool operator ==(Conference confOne, Conference confTwo)
+        {
+            return confOne.Equals(confTwo);
+        }
+
+        public static bool operator !=(Conference confOne, Conference confTwo)
+        {
+            return !confOne.Equals(confTwo);
+        }
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -56,8 +67,12 @@ namespace Project_Value_Object
             Conference hackConfOne = new Conference("HackConf", new DateTime(2017, 9, 30, 9, 0, 0));
             Conference hackConfTwo = new Conference("HackConf", new DateTime(2017, 9, 30, 9, 0, 0));
             Conference openFest = new Conference("OpenFest", new DateTime(2017, 11, 4, 9, 0, 0));
+
             Console.WriteLine(hackConfOne.Equals(openFest));
-            Console.WriteLine(hackConfOne.Equals(hackConfTwo));
+            Console.WriteLine(hackConfOne.Equals(hackConfTwo) + "\n");
+
+            Console.WriteLine(hackConfOne == openFest);
+            Console.WriteLine(hackConfOne != hackConfTwo);
         }
     }
 }
