@@ -7,7 +7,7 @@ using Domain;
 
 namespace Repositories
 {
-    class DummyWorkshopRepository : IWorkshopRepository
+    public class DummyWorkshopRepository : IWorkshopRepository
     {
         private Workshop workshop1;
         private Workshop workshop2;

@@ -7,7 +7,7 @@ using Domain;
 
 namespace Repositories
 {
-    class DummySpeakerRepository : ISpeakerRepository
+    public class DummySpeakerRepository : ISpeakerRepository
     {
         private Speaker speaker1;
         private Speaker speaker2;

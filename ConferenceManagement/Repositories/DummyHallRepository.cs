@@ -7,7 +7,7 @@ using Domain;
 
 namespace Repositories
 {
-    class DummyHallRepository : IHallRepository
+    public class DummyHallRepository : IHallRepository
     {
         private Hall hall1;
         private Hall hall2;

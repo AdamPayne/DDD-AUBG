@@ -7,7 +7,7 @@ using Domain;
 
 namespace Repositories
 {
-    class DummyResourceRepository : IResourceRepository
+    public class DummyResourceRepository : IResourceRepository
     {
         private Resource resource1;
         private Resource resource2;

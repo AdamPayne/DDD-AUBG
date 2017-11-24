@@ -24,6 +24,7 @@ namespace Domain
             this.daysDuration = days;
             this.seatsTaken = 0;
             this.speaker = speaker;
+            this.timeSlots = new List<TimeSlot>();
             
         }
 
@@ -33,6 +34,7 @@ namespace Domain
         public int DaysDuration { get { return this.daysDuration; } set { this.daysDuration = value; } }
         public int SeatsTaken { get { return this.seatsTaken; }}
         public Speaker Speaker { get { return this.speaker; }}
+        public List<TimeSlot> TimeSlots { get => timeSlots; set => timeSlots = value; }
 
         public void IncreaseSeatsTakenNumber(int number)
         {

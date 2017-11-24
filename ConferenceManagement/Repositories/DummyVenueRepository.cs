@@ -7,7 +7,7 @@ using Domain;
 
 namespace Repositories
 {
-    class DummyVenueRepository : IVenueRepository
+    public class DummyVenueRepository : IVenueRepository
     {
         private Venue venue1;
         private Venue venue2;

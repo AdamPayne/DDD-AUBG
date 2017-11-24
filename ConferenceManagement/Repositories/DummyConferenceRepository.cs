@@ -16,13 +16,17 @@ namespace Repositories
         {
             this.hackConf = new Conference();
             hackConf.Name = "HackConf";
+            hackConf.Date = new DateTime(2017, 9, 30);
             hackConf.Venue = new Venue("NDK");
             hackConf.Venue.AddHall(new Hall(1, true));
+            hackConf.Workshops = new List<Workshop>();
 
             this.openFest = new Conference();
             openFest.Name = "OpenFest";
+            openFest.Date = new DateTime(2017, 11, 4);
             openFest.Venue = new Venue("NDK");
             openFest.Venue.AddHall(new Hall(2, true));
+            openFest.Workshops = new List<Workshop>();
         }
         public Conference RetrieveConference(string name)
         {
