@@ -14,8 +14,10 @@ namespace Repositories
 
         public DummyWorkshopRepository()
         {
-            this.workshop1 = new Workshop("Intro to DDD", "DDD", 50, 2, new Speaker("Milan Nankov"));
-            this.workshop2 = new Workshop("Git Panic", "Git", 50, 2, new Speaker("Mihail Mikov"));
+            this.workshop1 = new Workshop(Guid.NewGuid().ToString(), "Intro to DDD", "DDD", 50, 2,
+                new Speaker(Guid.NewGuid().ToString(), "Mihail Mikov", "Full-stack developer"));
+            this.workshop2 = new Workshop(Guid.NewGuid().ToString(), "Git Panic", "Git", 50, 2,
+                new Speaker(Guid.NewGuid().ToString(), "Milan Nankov", ".NET developer"));
         }
 
         public Workshop RetrieveWorkshop(string name)

@@ -14,8 +14,8 @@ namespace Repositories
 
         public DummySpeakerRepository()
         {
-            this.speaker1 = new Speaker("Mihail Mikov");
-            this.speaker2 = new Speaker("Milan Nankov");
+            this.speaker1 = new Speaker(Guid.NewGuid().ToString(), "Mihail Mikov", "Full-stack developer");
+            this.speaker2 = new Speaker(Guid.NewGuid().ToString(), "Milan Nankov", ".NET developer");
         }
 
         public Speaker RetrieveSpeaker(string name)

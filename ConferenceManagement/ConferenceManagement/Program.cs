@@ -18,9 +18,8 @@ namespace ConferenceManagement
             Console.WriteLine(nikon.Description);
 
             DummyWorkshopRepository workshopRepo = new DummyWorkshopRepository();
-            hackConf.Workshops.Add(workshopRepo.RetrieveWorkshop("Intro to DDD"));
-            hackConf.Workshops[0].TimeSlots.Add(new TimeSlot("14:00", "15:15"));
-            hackConf.Workshops[0].TimeSlots.Add(new TimeSlot("15:45", "17:00"));
+            //hackConf.Sessions.Add(workshopRepo.RetrieveWorkshop("Intro to DDD"));
+
 
             Console.WriteLine(hackConf.Workshops[0].TimeSlots[0].StartTime + " - " + hackConf.Workshops[0].TimeSlots[0].EndTime);
             Console.WriteLine(hackConf.Workshops[0].TimeSlots[1].StartTime + " - " + hackConf.Workshops[0].TimeSlots[1].EndTime);

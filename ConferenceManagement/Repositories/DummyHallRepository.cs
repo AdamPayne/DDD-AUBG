@@ -14,8 +14,8 @@ namespace Repositories
 
         public DummyHallRepository()
         {
-            this.hall1 = new Hall(1, true);
-            this.hall2 = new Hall(2, false);
+            this.hall1 = new Hall(Guid.NewGuid().ToString(), 1, true);
+            this.hall2 = new Hall(Guid.NewGuid().ToString(), 2, false);
         }
 
         public Hall RetrieveHall(int number)
