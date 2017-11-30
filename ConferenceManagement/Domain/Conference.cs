@@ -38,6 +38,8 @@ namespace Domain
             this.venue = venue;
             this.date = date;
             this.resources = new List<Resource>();
+            this.timeslots = new List<TimeSlot>();
+            this.sessions = new List<TimeSlotAssociation>();
         } 
 
         public void addTimeSlot(TimeSlot timeSlot)
@@ -52,13 +54,49 @@ namespace Domain
             this.timeslots.Add(timeSlot);
         }
 
-        public void addSession(TimeSlot timeSlot, Session session)
+        public bool addSession(TimeSlot timeSlot, Session session)
         {
-            bool timeSlotExists = this.timeslots.Exists(t => t==timeSlot);
-            bool timeSlotNotTaken = this.sessions.Exists(s => s.TimeSlot == timeSlot);
+            bool timeSlotExists = this.timeslots.Exists(t => t == timeSlot);
+            bool timeSlotTaken = this.sessions.Exists(s => s.TimeSlot == timeSlot);
+            bool isWorkshop = Object.ReferenceEquals(session.GetType(), typeof(Workshop));
+            if (timeSlotExists && !timeSlotTaken)
+            {
+                if (isWorkshop)
+                {
+                    int timeslotsTaken = this.sessions.Count(w => w.Session == session);
+                    if(timeslotsTaken < ((Workshop)session).DaysDuration)
+                    {
+                        sessions.Add(new TimeSlotAssociation(session, timeSlot));
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
+                } else
+                {
+                    bool sessionTaken = this.sessions.Exists(s => s.Session == session);
+                    if (!sessionTaken)
+                    {
+                        sessions.Add(new TimeSlotAssociation(session, timeSlot));
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
 
+                }
+            } else
+            {
+                return false;
+            }
         }
 
+        public void assignResource(Resource r, TimeSlotAssociation s)
+        {
+            s.Session.Resources.Add(r);
+            r.Availability = false;
+        }
+         
         public string Id { get => id; }
         public string Name { get => name; set => name = value; }
         public Venue Venue { get => venue; set => venue = value; }

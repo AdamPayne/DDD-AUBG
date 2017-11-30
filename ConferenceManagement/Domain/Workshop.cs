@@ -14,6 +14,14 @@ namespace Domain
 
         public Workshop(string id, string name,string topic,int capacity,int days,Speaker speaker):base(id, name, topic, speaker)
         {
+            if(capacity < 1)
+            {
+                throw new Exception("Invalid capacity.");
+            }
+            if(days < 1)
+            {
+                throw new Exception("Invalid duration.");
+            }
             this.capacity = capacity;
             this.daysDuration = days;
             this.seatsTaken = 0;
@@ -37,6 +45,14 @@ namespace Domain
         }
 
 
+        public static bool operator ==(Workshop w1, Workshop w2)
+        {
+            return w1.Equals(w2);
+        }
 
+        public static bool operator !=(Workshop w1, Workshop w2)
+        {
+            return !w1.Equals(w2);
+        }
     }
 }

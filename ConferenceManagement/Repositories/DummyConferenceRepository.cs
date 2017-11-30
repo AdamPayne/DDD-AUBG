@@ -14,11 +14,11 @@ namespace Repositories
 
         public DummyConferenceRepository()
         {
-            this.hackConf = new Conference(Guid.NewGuid().ToString(), "HackConf", new Venue("NDK"), new DateTime(2017, 9, 30));
+            this.hackConf = new Conference(Guid.NewGuid().ToString(), "HackConf", new Venue(Guid.NewGuid().ToString(), "NDK"), new DateTime(2017, 12, 5));
             hackConf.Venue.AddHall(new Hall(Guid.NewGuid().ToString(), 1, true));
             hackConf.Sessions = new List<TimeSlotAssociation>();
 
-            this.openFest = new Conference(Guid.NewGuid().ToString(), "OpenFest", new Venue("NDK"), new DateTime(2017, 11, 4));
+            this.openFest = new Conference(Guid.NewGuid().ToString(), "OpenFest", new Venue(Guid.NewGuid().ToString(), "NDK"), new DateTime(2017, 12, 7));
             openFest.Venue.AddHall(new Hall(Guid.NewGuid().ToString(), 2, true));
             openFest.Sessions = new List<TimeSlotAssociation>();
         }

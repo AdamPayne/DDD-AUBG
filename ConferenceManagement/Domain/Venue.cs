@@ -8,16 +8,20 @@ namespace Domain
 {
     public class Venue
     {
+        private string id;
         private string name;
         private List<Hall> halls;
 
-        public Venue(string name)
+        public Venue(string id, string name)
         {
-            this.name = name;
+            this.id = id ?? throw new ArgumentNullException(nameof(id));
+            this.name = name ?? throw new ArgumentNullException(nameof(name));
             this.halls = new List<Hall>();
         }
 
         public string Name { get { return this.name; } set { this.name = value; } }
+
+        public string Id { get => id; }
 
         public void AddHall(Hall m)
         {

@@ -14,8 +14,8 @@ namespace Repositories
 
         public DummyVenueRepository()
         {
-            this.venue1 = new Venue("NDK");
-            this.venue2 = new Venue("John Atanasov Hall");
+            this.venue1 = new Venue(Guid.NewGuid().ToString(), "NDK");
+            this.venue2 = new Venue(Guid.NewGuid().ToString(), "John Atanasov Hall");
         }
 
         public Venue RetrieveVenue(string name)

@@ -14,8 +14,8 @@ namespace Domain
 
         public Resource(string name, string description, bool availability)
         {
-            this.name = name;
-            this.description = description;
+            this.name = name ?? throw new ArgumentNullException(nameof(name));
+            this.description = description ?? throw new ArgumentNullException(nameof(description));
             this.availability = availability;
         }
 

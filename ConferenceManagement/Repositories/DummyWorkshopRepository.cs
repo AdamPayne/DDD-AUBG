@@ -16,7 +16,7 @@ namespace Repositories
         {
             this.workshop1 = new Workshop(Guid.NewGuid().ToString(), "Intro to DDD", "DDD", 50, 2,
                 new Speaker(Guid.NewGuid().ToString(), "Mihail Mikov", "Full-stack developer"));
-            this.workshop2 = new Workshop(Guid.NewGuid().ToString(), "Git Panic", "Git", 50, 2,
+            this.workshop2 = new Workshop(Guid.NewGuid().ToString(), "Intro to Docker", "Git", 50, 2,
                 new Speaker(Guid.NewGuid().ToString(), "Milan Nankov", ".NET developer"));
         }
 
